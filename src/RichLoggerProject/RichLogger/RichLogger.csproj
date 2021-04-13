@@ -4,10 +4,12 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>AnthonyRyck</Copyright>
+    <Copyright>Copyright Anthony Ryck 2021</Copyright>
     <Description>Un control WPF pour les Logs, en .Net 5.</Description>
     <PackageProjectUrl>https://github.com/AnthonyRyck/RichLogger</PackageProjectUrl>
     <PackageTags>Log Logger</PackageTags>
+    <Authors>Anthony Ryck</Authors>
+    <Company>Anthony Ryck</Company>
   </PropertyGroup>
 
 </Project>
