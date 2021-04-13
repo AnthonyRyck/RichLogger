@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>AnthonyRyck</Copyright>
+    <Description>Un control WPF pour les Logs, en .Net 5.</Description>
+    <PackageProjectUrl>https://github.com/AnthonyRyck/RichLogger</PackageProjectUrl>
+    <PackageTags>Log Logger</PackageTags>
   </PropertyGroup>
 
 </Project>
