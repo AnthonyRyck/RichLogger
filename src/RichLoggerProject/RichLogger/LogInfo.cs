@@ -26,7 +26,6 @@ namespace RichLogger
     }
 
 
-
     public enum StatusLog
     {
         Error,
