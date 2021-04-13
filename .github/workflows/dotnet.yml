@@ -20,4 +20,4 @@ jobs:
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg -k $ -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key oy2jubhnrwvnrupoupfaznwa57pd7tjezljf4pxryi3pca -s https://api.nuget.org/v3/index.json
