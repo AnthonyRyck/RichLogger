@@ -22,7 +22,7 @@ namespace RichLogger
         {
             StatusLog = type;
             InformationMessage = message;
-        }
+        } 
     }
 
 
