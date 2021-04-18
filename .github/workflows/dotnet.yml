@@ -23,4 +23,4 @@ jobs:
       shell: pwsh
       env:
         APIKEY: ${{ secrets.KEYNUGET }}
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $env:TESTPWS -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $env:APIKEY -s https://api.nuget.org/v3/index.json
