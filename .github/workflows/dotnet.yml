@@ -22,4 +22,4 @@ jobs:
     - name: Deploy NuGet Package
       env:
         SUPER_SECRET: ${{ secrets.Nuget_RichLog_Api }}
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $SUPER_SECRET -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $env:SUPER_SECRET -s https://api.nuget.org/v3/index.json
