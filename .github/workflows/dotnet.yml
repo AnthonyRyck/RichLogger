@@ -10,9 +10,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Get Secret
-      env:
-        TEST: ${{ secrets.Nuget_RichLog_Api }}
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -24,4 +21,6 @@ jobs:
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
       shell: cmd
+      env:
+        SUPER_SECRET: ${{ secrets.Nuget_RichLog_Api }}
       run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key %SUPER_SECRET% -s https://api.nuget.org/v3/index.json
