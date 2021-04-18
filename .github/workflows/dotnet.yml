@@ -22,10 +22,8 @@ jobs:
     - name: Deploy NuGet Package
       env:
         APIKEY: ${{ secrets.KEYNUGET }}
-        TEST: ${{ secrets.KEYNUGET }}
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $APIKEY -s https://api.nuget.org/v3/index.json
-    - name: test1
-      run: echo $TEST
+      #run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $APIKEY -s https://api.nuget.org/v3/index.json
+      run: echo $APIKEY
     - name: test2
       run: echo $env:TEST
     - name: test3
