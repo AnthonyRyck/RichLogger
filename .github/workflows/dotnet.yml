@@ -20,4 +20,5 @@ jobs:
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key YOUR_API_KEY -s https://api.nuget.org/v3/index.json
+      env: SUPER_SECRET: ${{ secrets.NUGETRICHLOG }}
+      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key "%SUPER_SECRET%" -s https://api.nuget.org/v3/index.json
