@@ -20,7 +20,6 @@ jobs:
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      shell: pwsh
       env:
         APIKEY: ${{ secrets.KEYNUGET }}
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key $env:APIKEY -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key APIKEY -s https://api.nuget.org/v3/index.json
