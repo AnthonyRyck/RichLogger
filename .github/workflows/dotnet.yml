@@ -19,12 +19,14 @@ jobs:
       run: dotnet restore ./src/RichLoggerProject/RichLogger/RichLogger.csproj
     - name: Build
       run: dotnet build ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o BuildRelease
-    - name: Recuperation Version
+    - name: Recuperation de la version
       shell: pwsh
-      run: (Get-ItemProperty -Path ./BuildRelease/RichLogger.dll).VersionInfo.FileVersion >> ${versionAssembly}
-      env:
-        versionAssembly: 1.0.0
+      run: $version = (Get-ItemProperty -Path ./BuildRelease/RichLogger.dll).VersionInfo.ProductVersion
+    - name: Pour voir la version
+      shell: pwsh
+      run: echo "la version est $version"
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./NuGetPackages/RichLogger.${{ env.versionAssembly }}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      shell: pwsh
+      run: dotnet nuget push ./NuGetPackages/RichLogger.$version.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
