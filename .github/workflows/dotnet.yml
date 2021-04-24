@@ -24,11 +24,8 @@ jobs:
       run: (Get-ItemProperty -Path ./BuildRelease/RichLogger.dll).VersionInfo.ProductVersion >> $versionFile
       env: 
         versionFile: test
-    - name: Pour voir la version
-      shell: pwsh
-      run: echo "la version est ${{ versionFile }}"
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
       shell: pwsh
-      run: dotnet nuget push ./NuGetPackages/RichLogger.${{ versionFile }}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push ./NuGetPackages/RichLogger.${{ env.versionFile }}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
