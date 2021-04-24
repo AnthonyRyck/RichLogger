@@ -28,4 +28,4 @@ jobs:
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
       shell: pwsh
-      run: dotnet nuget push ./NuGetPackages/RichLogger.${{ env.versionFile }}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push ./NuGetPackages/RichLogger.${versionFile}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
