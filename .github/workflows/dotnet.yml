@@ -18,6 +18,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src/RichLoggerProject/RichLogger/RichLogger.csproj
     - name: Creation du Nugget package
-      run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
+      run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o .
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./NuGetPackages/RichLogger.1.0.0.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push *.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
