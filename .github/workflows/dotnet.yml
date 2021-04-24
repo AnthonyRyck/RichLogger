@@ -17,15 +17,8 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore ./src/RichLoggerProject/RichLogger/RichLogger.csproj
-    - name: Build
-      run: dotnet build ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o BuildRelease
-    - name: Recuperation de la version
-      shell: pwsh
-      run: (Get-ItemProperty -Path ./BuildRelease/RichLogger.dll).VersionInfo.ProductVersion >> $versionFile
-      env: 
-        versionFile: test
     - name: Creation du Nugget package
       run: dotnet pack ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
       shell: pwsh
-      run: dotnet nuget push ./NuGetPackages/RichLogger.${versionFile}.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push ./NuGetPackages/*.nupkg --api-key ${{ secrets.KEYNUGET }} -s https://api.nuget.org/v3/index.json --skip-duplicate
