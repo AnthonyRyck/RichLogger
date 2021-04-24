@@ -18,7 +18,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src/RichLoggerProject/RichLogger/RichLogger.csproj
     - name: Build
-      run: dotnet build ./scr/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o BuildRelease
+      run: dotnet build ./src/RichLoggerProject/RichLogger/RichLogger.csproj --configuration Release -o BuildRelease
     - name: Recuperation Version
       shell: pwsh
       run: (Get-ItemProperty -Path ./BuildRelease/RichLogger.dll).VersionInfo.FileVersion >> ${versionAssembly}
