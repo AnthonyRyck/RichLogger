@@ -2,7 +2,10 @@ name: Build-pack-publishToNuget
 
 on:
   push:
-    branches: [ main ]
+    paths:
+     - 'src/RichLoggerProject/**'
+     - '!.github/workflows/**'
+     - '!README.md'
 
 jobs:
   build:
