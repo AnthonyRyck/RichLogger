@@ -1,4 +1,6 @@
 # RichLogger
+[![NuGet](https://img.shields.io/nuget/vpre/RichLogger.svg)](https://www.nuget.org/packages/RichLogger/)
+[![Downloads](https://img.shields.io/nuget/dt/RichLogger.svg)](https://www.nuget.org/packages/RichLogger)
 
 ## English
 It is a WPF control to allow to "log" information for the user. It can copy/paste the text of the log.  
